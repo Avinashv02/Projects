@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # Load the model and labels
-model = tf.keras.models.load_model("trained_model2.h5")
+model = tf.keras.models.load_model("fruits.h5")
 with open("label.txt") as f:
     labels = f.readlines()
 
