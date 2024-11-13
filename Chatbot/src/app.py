@@ -7,7 +7,7 @@ import google.generativeai as genai
 from IPython.display import Markdown
 
 # MongoDB connection URI (replace with your actual MongoDB URI)
-MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/"
+MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/?retryWrites=false&tls=true"
 client = MongoClient(MONGO_URI)
 db = client["feedback_database"]  # Replace with your database name
 feedback_collection = db["feedbacks"]  # Replace with your collection name
