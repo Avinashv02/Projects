@@ -1,9 +1,16 @@
 from dotenv import load_dotenv
 import streamlit as st
+from pymongo import MongoClient
 import os
 import textwrap
 import google.generativeai as genai
 from IPython.display import Markdown
+
+# MongoDB connection URI (replace with your actual MongoDB URI)
+MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/"
+client = MongoClient(MONGO_URI)
+db = client["feedback_database"]  # Replace with your database name
+feedback_collection = db["feedbacks"]  # Replace with your collection name
 
 # Set up the Streamlit page (must be the first Streamlit command)
 st.set_page_config(page_title="AI Chatbot", layout="centered", page_icon="🤖")
@@ -149,10 +156,10 @@ feedback = st.sidebar.text_area("We'd love to hear your thoughts! Please provide
 if st.sidebar.button("Submit Feedback"):
     if feedback.strip():
         st.sidebar.success("Thank you for your feedback!")
-        # You can handle saving or processing the feedback here, such as sending it to an email or saving it in a file.
-        # Example: Save feedback to a file (optional)
-        with open("feedback.txt", "a") as file:
-            file.write(feedback + "\n\n")
+        
+        # Save feedback to MongoDB
+        feedback_document = {"feedback": feedback, "user": "anonymous"}  # You can add additional fields as needed
+        feedback_collection.insert_one(feedback_document)
         
         # Clear the feedback after submission
         st.session_state.feedback = ""  # Reset the text area content
