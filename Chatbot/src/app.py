@@ -53,8 +53,8 @@ light_theme_css = """
 dark_theme_css = """
     <style>
     body { background-color: #121212; color: #E0E0E0; }
-    .main-header { background: linear-gradient(#5efce8, #736efe); text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: #608BC1; color: white; border-radius: 8px; }
+    .main-header { background: #ed4182; text-align: center; font-family: 'Roboto', sans-serif; }
+    .stButton button { background-color: linear-gradient(#5efce8, #736efe); color: white; border-radius: 8px; }
     .stButton button:hover { background-color: #133E87; color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #333333; color: #E0E0E0; }
