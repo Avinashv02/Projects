@@ -40,10 +40,10 @@ theme = st.sidebar.selectbox("Choose Theme", ["Light", "Dark", "Material"])
 # Custom CSS for each theme
 light_theme_css = """
     <style>
-    body { background-color: #FAFAFA; color: #212121; }
-    .main-header { color: #6200EE; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: #F96E2A; color: white; border-radius: 8px; }
-    .stButton button:hover { background-color: #FC8F54; color: white; }
+    body { background-color: #FAFAFA; color: linear-gradient(to left, #4285f4, #d96570); }
+    .main-header { background: linear-gradient(to left, #4285f4, #d96570); text-align: center; font-family: 'Roboto', sans-serif; }
+    .stButton button { background:  linear-gradient(to left, #4285f4, #d96570); color: white; border-radius: 8px; }
+    .stButton button:hover { background:  linear-gradient(to right, #4285f4, #d96570); color: white; }
     .response-text { background-color: #FFFFFF; border: 1px solid #E0E0E0; color: #424242; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #F5F5F5; color: #212121; }
     .stTextInput > div > input { background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 8px; color: #212121; }
@@ -53,9 +53,9 @@ light_theme_css = """
 dark_theme_css = """
     <style>
     body { background-color: #121212; color: #E0E0E0; }
-    .main-header { color: #BB86FC; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: #133E87; color: white; border-radius: 8px; }
-    .stButton button:hover { background-color: #608BC1; color: white; }
+    .main-header { color: linear-gradient(236, 239, 247); text-align: center; font-family: 'Roboto', sans-serif; }
+    .stButton button { background-color: #608BC1; color: white; border-radius: 8px; }
+    .stButton button:hover { background-color: #133E87; color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #333333; color: #E0E0E0; }
     .stTextInput > div > input { background-color: #333333; border: 2px solid #555555; border-radius: 8px; color: #E0E0E0; }
@@ -65,15 +65,14 @@ dark_theme_css = """
 material_theme_css = """
     <style>
     body { background-color: #FFFFFF; color: #212121; }
-    .main-header { color: #6200EE; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: #37AFE1; color: white; border-radius: 8px; }
-    .stButton button:hover { background-color: #78B3CE; color: white; }
+    .main-header { color: #5BBCFF; text-align: center; font-family: 'Roboto', sans-serif; }
+    .stButton button { background-color: #78B3CE; color: white; border-radius: 8px; }
+    .stButton button:hover { background-color: #37AFE1; color: white; }
     .response-text { background-color: #E9EFEC; border: 1px solid #E0E0E0; color: #424242; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #F5F5F5; color: #212121; }
     .stTextInput > div > input { background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 8px; color: #212121; }
     </style>
 """
-
 # Apply selected theme CSS
 if theme == "Light":
     st.markdown(light_theme_css, unsafe_allow_html=True)
