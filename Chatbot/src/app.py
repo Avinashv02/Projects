@@ -54,7 +54,7 @@ dark_theme_css = """
     <style>
     body { background-color: #121212; color: #E0E0E0; }
     .main-header { color: #ed4182; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: linear-gradient(to left, #2e3192, #1bffff); color: white; border-radius: 8px; }
+    .stButton button { background-color: linear-gradient(to left, #9d66dd, #02f7ad, #3498db); color: white; border-radius: 8px; }
     .stButton button:hover { background-color: #133E87; color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #333333; color: #E0E0E0; }
