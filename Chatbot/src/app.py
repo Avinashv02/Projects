@@ -5,6 +5,8 @@ import os
 import textwrap
 import google.generativeai as genai
 from IPython.display import Markdown
+from datetime import datetime
+import pytz
 
 # MongoDB connection URI (replace with your actual MongoDB URI)
 MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/?retryWrites=false&tls=true"
@@ -84,15 +86,46 @@ else:
 st.markdown("<h1 class='main-header'>🤖 Gemini-powered AI Chatbot</h1>", unsafe_allow_html=True)
 st.write("---")
 
-# Function to handle query submission (Enter key or button click)
+# Handle the user's query
 def handle_query():
-    if st.session_state.input_query.strip():
-        with st.spinner("Thinking..."):
-            st.session_state.response = get_gemini_response(st.session_state.input_query)  # Store response in session state
-        st.session_state.input_query = ""  # Clear the input after submission
-    else:
-        st.warning("Please enter a question before submitting.")
+    """Handles user queries and responds to specific or general questions."""
+    # Get and clean the user input
+    question = st.session_state.input_query.strip().lower()
 
+    # Response placeholder for showing a response or spinner
+    response_placeholder = st.empty()
+
+    # Check for specific types of queries
+    developer_related_phrases = ["who are you","who developed you","who created you","who made you"]
+    time_related_phrases = ["what time", "current time", "tell me the time", "what is the time", "time right now", "time"]
+    greed_related_phrases = ["how are you"]
+    
+    if any(phrase in question for phrase in developer_related_phrases):
+        # Predefined response for developer-related queries
+        st.session_state.response = (
+            "I am a large language model, trained by Google."
+            " I am developed by Avinash Verma, a 3rd-year undergrad student of Delhi Technological University(DTU)."
+        )
+    elif any(phrase in question for phrase in time_related_phrases):
+        # Get the current time in 12-hour format
+        current_time = datetime.now().strftime("%I:%M:%S %p")
+        st.session_state.response = f"The current time is: {current_time} (UTC)"
+
+    elif any(phrase in question for phrase in greed_related_phrases):
+        st.session_state.response = f"I'm just a bundle of code, so I don't have feelings, but thanks for asking! How can I assist you today? 😊"
+
+    elif question:
+         # Display a spinner while processing the query
+        with st.spinner("Thinking..."):
+            # Call the AI response function and set the response
+            st.session_state.response = get_gemini_response(question)
+    else:
+        # Warning for empty input
+        st.warning("Please enter a question before submitting.")
+        response_placeholder.empty()
+
+    # Clear the input field after submission
+    st.session_state.input_query = ""
 
 # Main chat input area, triggers `handle_query` on Enter
 st.markdown("### Ask me anything!")
