@@ -53,7 +53,7 @@ light_theme_css = """
 dark_theme_css = """
     <style>
     body { background-color: #121212; color: #E0E0E0; }
-    .main-header { color: linear-gradient(236, 239, 247); text-align: center; font-family: 'Roboto', sans-serif; }
+    .main-header { background: linear-gradient(#5efce8, #736efe); text-align: center; font-family: 'Roboto', sans-serif; }
     .stButton button { background-color: #608BC1; color: white; border-radius: 8px; }
     .stButton button:hover { background-color: #133E87; color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
