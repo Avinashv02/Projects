@@ -41,7 +41,7 @@ theme = st.sidebar.selectbox("Choose Theme", ["Light", "Dark", "Material"])
 light_theme_css = """
     <style>
     body { background-color: #FAFAFA; color: linear-gradient(to left, #4285f4, #d96570); }
-    .main-header { background: linear-gradient(to left, #4285f4, #d96570); text-align: center; font-family: 'Roboto', sans-serif; }
+    .main-header { color: linear-gradient(to left, #4285f4, #d96570); text-align: center; font-family: 'Roboto', sans-serif; }
     .stButton button { background:  linear-gradient(to left, #4285f4, #d96570); color: white; border-radius: 8px; }
     .stButton button:hover { background:  linear-gradient(to right, #4285f4, #d96570); color: white; }
     .response-text { background-color: #FFFFFF; border: 1px solid #E0E0E0; color: #424242; padding: 20px; border-radius: 8px; }
@@ -53,8 +53,8 @@ light_theme_css = """
 dark_theme_css = """
     <style>
     body { background-color: #121212; color: #E0E0E0; }
-    .main-header { background: #ed4182; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background-color: linear-gradient(#5efce8, #736efe); color: white; border-radius: 8px; }
+    .main-header { color: #ed4182; text-align: center; font-family: 'Roboto', sans-serif; }
+    .stButton button { background-color: linear-gradient(to left, #5efce8, #736efe); color: white; border-radius: 8px; }
     .stButton button:hover { background-color: #133E87; color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #333333; color: #E0E0E0; }
