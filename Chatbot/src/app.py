@@ -55,7 +55,7 @@ dark_theme_css = """
     body { background-color: #121212; color: #E0E0E0; }
     .main-header { color: #ed4182; text-align: center; font-family: 'Roboto', sans-serif; }
     .stButton button { background:  linear-gradient(to left, #9d66dd, #3d00a6, #3498db); color: white; border-radius: 8px; }
-    .stButton button:hover { background-color: #133E87; color: white; }
+    .stButton button:hover { background:  linear-gradient(to right, #9d66dd, #3d00a6, #3498db); color: white; }
     .response-text { background-color: #000000; border: 1px solid #333333; color: #E0E0E0; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #333333; color: #E0E0E0; }
     .stTextInput > div > input { background-color: #333333; border: 2px solid #555555; border-radius: 8px; color: #E0E0E0; }
@@ -93,6 +93,7 @@ def handle_query():
 
     # Response placeholder for showing a response or spinner
     response_placeholder = st.empty()
+    b = 0
 
     # Check for specific types of queries
     developer_related_phrases = ["who are you","who developed you","who created you","who made you"]
@@ -100,20 +101,24 @@ def handle_query():
     greed_related_phrases = ["how are you"]
     
     if any(phrase in question for phrase in developer_related_phrases):
+        b = 1
         # Predefined response for developer-related queries
         st.session_state.response = (
             "I am a large language model, trained by Google."
             " I am developed by Avinash Verma, a 3rd-year undergrad student of Delhi Technological University(DTU)."
         )
     elif any(phrase in question for phrase in time_related_phrases):
+        b = 1
         # Get the current time in 12-hour format
         current_time = datetime.now().strftime("%I:%M:%S %p")
         st.session_state.response = f"The current time is: {current_time} (UTC)"
 
     elif any(phrase in question for phrase in greed_related_phrases):
+        b = 1
         st.session_state.response = f"I'm just a bundle of code, so I don't have feelings, but thanks for asking! How can I assist you today? 😊"
 
     elif question:
+         b = 1
          # Display a spinner while processing the query
         with st.spinner("Thinking..."):
             # Call the AI response function and set the response
@@ -123,8 +128,9 @@ def handle_query():
         st.warning("Please enter a question before submitting.")
         response_placeholder.empty()
 
-    # Clear the input field after submission
-    st.session_state.input_query = ""
+    if(b == 1):
+        # Clear the input field after submission
+        st.session_state.input_query = ""
 
 # Main chat input area, triggers `handle_query` on Enter
 st.markdown("### Ask me anything!")
