@@ -118,7 +118,7 @@ def handle_query():
         st.session_state.response = f"I'm just a bundle of code, so I don't have feelings, but thanks for asking! How can I assist you today? 😊"
 
     elif question:
-         b = 1
+        b = 1
          # Display a spinner while processing the query
         with st.spinner("Thinking..."):
             # Call the AI response function and set the response
