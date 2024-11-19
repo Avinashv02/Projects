@@ -42,7 +42,7 @@ light_theme_css = """
     <style>
     body { background-color: #FAFAFA; color: linear-gradient(to left, #4285f4, #d96570); }
     .main-header { color: #5BBCFF; text-align: center; font-family: 'Roboto', sans-serif; }
-    .stButton button { background:  linear-gradient(to left, #9ADCFF, #FF77B7); color: white; border-radius: 8px; }
+    .stButton button { background:  linear-gradient(to left, #81F5FF, #FF77B7); color: white; border-radius: 8px; }
     .stButton button:hover { background:  linear-gradient(to right, #4285f4, #d96570); color: white; }
     .response-text { background-color: #FFFFFF; border: 1px solid #E0E0E0; color: #424242; padding: 20px; border-radius: 8px; }
     .sidebar .sidebar-content { background-color: #F5F5F5; color: #212121; }
