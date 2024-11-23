@@ -7,6 +7,7 @@ import google.generativeai as genai
 from IPython.display import Markdown
 from datetime import datetime
 import pytz
+from pytz import timezone
 
 # MongoDB connection URI (replace with your actual MongoDB URI)
 MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/?retryWrites=false&tls=true"
