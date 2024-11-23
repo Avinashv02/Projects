@@ -109,16 +109,11 @@ def handle_query():
             "I use a multimodal AI language model developed by Google. I am designed to understand and generate human language, answer questions, and provide information on a wide range of topics. I am trained on a massive dataset of text and code, which allows me to communicate effectively and perform a variety of language-related tasks. "
             "I am developed by Avinash Verma, a 3rd-year undergraduate student of Delhi Technological University (DTU)."
         )
-
-      
-            
-
-
     elif any(phrase in question for phrase in time_related_phrases):
         b = 1
         # Get the current time in 12-hour format
-        current_time = datetime.now().strftime("%I:%M:%S %p")
-        st.session_state.response = f"The current time is: {current_time} (UTC)"
+        india_time = datetime.now(timezone('Asia/Kolkata')).strftime("%Y-%m-%d %I:%M:%S %p")
+        st.session_state.response = f"The current time is: {india_time} (UTC+5:30)"
 
     elif any(phrase in question for phrase in greed_related_phrases):
         b = 1
