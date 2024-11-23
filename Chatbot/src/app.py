@@ -8,6 +8,15 @@ from IPython.display import Markdown
 from datetime import datetime
 import pytz
 
+# Add the link to the custom font (Parkinsans)
+st.markdown(
+    """
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    """, unsafe_allow_html=True
+)
+
 # MongoDB connection URI (replace with your actual MongoDB URI)
 MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/?retryWrites=false&tls=true"
 client = MongoClient(MONGO_URI)
@@ -104,7 +113,7 @@ def handle_query():
         b = 1
         # Predefined response for developer-related queries
         st.session_state.response = (
-            "Hello, I am <span style='font-family: Arial, sans-serif; font-weight: bold;'>Lumina</span> "
+            "Hello, I am <span style='font-family:'Parkinsans', sans-serif; font-weight: bold;'>Lumina</span> "
             "(light and intelligence), an AI chatbot.<br><hr>"
             "I use a multimodal AI language model developed by Google. I am designed to understand and generate human language, answer questions, and provide information on a wide range of topics. I am trained on a massive dataset of text and code, which allows me to communicate effectively and perform a variety of language-related tasks. "
             "I am developed by Avinash Verma, a 3rd-year undergraduate student of Delhi Technological University (DTU)."
