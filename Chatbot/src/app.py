@@ -8,15 +8,6 @@ from IPython.display import Markdown
 from datetime import datetime
 import pytz
 
-# Add the link to the custom font (Parkinsans)
-st.markdown(
-    """
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
-    """, unsafe_allow_html=True
-)
-
 # MongoDB connection URI (replace with your actual MongoDB URI)
 MONGO_URI = "mongodb+srv://avinashv02official:9891706066Avi@cluster0.yhfge.mongodb.net/?retryWrites=false&tls=true"
 client = MongoClient(MONGO_URI)
