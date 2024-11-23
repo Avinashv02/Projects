@@ -113,7 +113,7 @@ def handle_query():
         b = 1
         # Predefined response for developer-related queries
         st.session_state.response = (
-            "Hello, I am <span style='font-family:'Parkinsans', sans-serif; font-weight: bold;'>Lumina</span> "
+            <h1 style="font-family: 'Parkinsans', sans-serif; font-weight: bold;">Hello, I am Lumina</h1>
             "(light and intelligence), an AI chatbot.<br><hr>"
             "I use a multimodal AI language model developed by Google. I am designed to understand and generate human language, answer questions, and provide information on a wide range of topics. I am trained on a massive dataset of text and code, which allows me to communicate effectively and perform a variety of language-related tasks. "
             "I am developed by Avinash Verma, a 3rd-year undergraduate student of Delhi Technological University (DTU)."
