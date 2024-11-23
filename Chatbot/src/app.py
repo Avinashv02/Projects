@@ -115,7 +115,7 @@ def handle_query():
         # Get the current time in 12-hour format
         india_time = datetime.now(timezone('Asia/Kolkata')).strftime("%I:%M:%S %p")
         india_date = datetime.now(timezone('Asia/Kolkata')).strftime("%d-%m-%Y")
-        st.session_state.response = f"The current time is: <b>{india_time}<b> (UTC+5:30)<br><hr> Date: <b>{india_date}"
+        st.session_state.response = f"The current time is: <span style='font-family: Parkinsans, sans-serif; font-weight: bold;'>{india_time}</span> (UTC+5:30)<br>Date: <b>{india_date}<b>"
 
     elif any(phrase in question for phrase in greed_related_phrases):
         b = 1
