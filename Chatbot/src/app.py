@@ -97,8 +97,8 @@ def handle_query():
     b = 0
 
     # Check for specific types of queries
-    developer_related_phrases = ["who","who are you","who developed you","who created you","who made you"]
-    time_related_phrases = ["what time", "current time", "tell me the time", "what is the time", "time right now", "time"]
+    developer_related_phrases = ["who are you","who developed you","who created you","who made you"]
+    time_related_phrases = ["what time", "current time", "tell me the time", "what is the time", "time right now", "time", "date"]
     greed_related_phrases = ["how are you"]
     
     if any(phrase in question for phrase in developer_related_phrases):
@@ -113,8 +113,9 @@ def handle_query():
     elif any(phrase in question for phrase in time_related_phrases):
         b = 1
         # Get the current time in 12-hour format
-        india_time = datetime.now(timezone('Asia/Kolkata')).strftime("%Y-%m-%d %I:%M:%S %p")
-        st.session_state.response = f"The current time is: {india_time} (UTC+5:30)"
+        india_time = datetime.now(timezone('Asia/Kolkata')).strftime("%I:%M:%S %p")
+        india_date = datetime.now(timezone('Asia/Kolkata')).strftime("%d-%m-%Y)
+        st.session_state.response = f"The current time is: <b>{india_time}<b> (UTC+5:30)<br><hr> Date: <b>{india_date}"
 
     elif any(phrase in question for phrase in greed_related_phrases):
         b = 1
