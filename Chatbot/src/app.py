@@ -82,7 +82,7 @@ else:
     st.markdown(material_theme_css, unsafe_allow_html=True)
 
 # App title and header
-st.markdown("<h1 class='main-header'>🤖 Gemini-powered AI Chatbot</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-header'>🤖 Lumina - The AI Chatbot</h1>", unsafe_allow_html=True)
 st.write("---")
 
 # Handle the user's query
@@ -104,8 +104,9 @@ def handle_query():
         b = 1
         # Predefined response for developer-related queries
         st.session_state.response = (
-            "I am a large language model, trained by Google."
-            " I am developed by Avinash Verma, a 3rd-year undergrad student of Delhi Technological University(DTU)."
+            "Hello i am Lumina(light and intelligence), an AI chatbot. "
+            "I uses a multimodal AI language model developed by Google. I am designed to understand and generate human language, answer questions, and provide information on a wide range of topics. I am trained on a massive dataset of text and code, which allows me to communicate effectively and perform a variety of language-related tasks. "
+            "I am developed by Avinash Verma, a 3rd-year undergraduate student of Delhi Technological University(DTU)."
         )
     elif any(phrase in question for phrase in time_related_phrases):
         b = 1
