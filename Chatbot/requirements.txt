@@ -1,0 +1,12 @@
+streamlit
+google-generativeai
+python-dotenv
+pymongo
+os
+textwrap
+IPython
+datetime
+pytz
+gtts
+base64
+streamlit_authenticator
