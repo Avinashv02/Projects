@@ -24,15 +24,6 @@ load_dotenv()
 # Configure Google API Key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Create the model
-generation_config = {
-  "temperature": 1,
-  "top_p": 0.95,
-  "top_k": 40,
-  "max_output_tokens": 8192,
-  "response_mime_type": "text/plain",
-}
-
 # Function to format text in markdown
 def to_markdown(text):
     text = text.replace('•', '  *')
@@ -41,8 +32,7 @@ def to_markdown(text):
 # Function to load Gemini model
 def get_gemini_response(question):
     model = genai.GenerativeModel(
-  model_name="gemini-1.5-flash",
-  generation_config=generation_config,
+  model_name="gemini-1.5-flash"
 )
     #response = chat_session.send_message("INSERT_INPUT_HERE")
     response = model.generate_content(question)
