@@ -116,8 +116,8 @@ def handle_query():
 
     # Check for specific types of queries
     developer_related_phrases = ["who are you", "who developed you", "who created you", "who made you"]
-    time_related_phrases = ["what time", "current time", "tell me the time", "what is the time", "time right now", "time"]
-    greed_related_phrases = ["how are you"]
+    time_related_phrases = ["current time", "tell me the time", "what is the time", "time right now"]
+    greed_related_phrases = ["how are you", "hello", "hii"]
     
     if any(phrase in question for phrase in developer_related_phrases):
         b = 1
