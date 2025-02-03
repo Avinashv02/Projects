@@ -7,7 +7,6 @@ import google.generativeai as genai
 from IPython.display import Markdown
 from datetime import datetime
 import pytz
-from gtts import gTTS
 import base64
 
 
@@ -105,19 +104,6 @@ else:
 st.markdown("<h1 class='main-header'>🤖 Gemini-powered AI Chatbot</h1>", unsafe_allow_html=True)
 st.write("---")
 
-# Function to generate and play text-to-speech audio
-def play_tts(response_text):
-    if response_text.strip():  # Ensure there's text to convert
-        # Convert the text to speech using gTTS
-        tts = gTTS(response_text, lang="en")
-        audio_file = "response.mp3"
-        tts.save(audio_file)
-        
-        # Read the audio file and encode it for Streamlit playback
-        with open(audio_file, "rb") as audio:
-            audio_bytes = audio.read()
-            st.audio(audio_bytes, format="audio/mp3")
-
 # Handle the user's query
 def handle_query():
     """Handles user queries and responds to specific or general questions."""
@@ -184,9 +170,6 @@ if st.button("Get Response"):
 if "response" in st.session_state and st.session_state.response:
     st.markdown("<h3 style='color: #6200EE;'>Response:</h3>", unsafe_allow_html=True)
     st.markdown(f"<div class='response-text'>{st.session_state.response}</div>", unsafe_allow_html=True)
-    
-    # Play the response text as audio
-    play_tts(st.session_state.response)
     
 # Sidebar with additional information and styling
 st.sidebar.markdown("## About This App")
