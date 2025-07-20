@@ -2,5 +2,4 @@ streamlit
 pymongo
 datetime
 requests
-re
 mongoclient
