@@ -10,7 +10,7 @@ import io
 # ---------------------------
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("Fruty/fruits.h5")
+    return tf.keras.models.load_model("https://drive.google.com/file/d/1dAS_zmDZb0kM9aULiBcYufj7-BXTzWF-/view?usp=sharing")
 
 @st.cache_data
 def load_labels():
@@ -119,3 +119,4 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
