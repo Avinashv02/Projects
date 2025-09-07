@@ -2,15 +2,21 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 import time
-from PIL import Image
-import io
+import tensorflow as tf
+import gdown  # pip install gdown
+import os
 
-# ---------------------------
-# Load Model and Labels
-# ---------------------------
+MODEL_PATH = "fruits.h5"
+DRIVE_URL = "https://drive.google.com/uc?id=1dAS_zmDZb0kM9aULiBcYufj7-BXTzWF-"  # Direct download link
+
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("https://drive.google.com/file/d/1dAS_zmDZb0kM9aULiBcYufj7-BXTzWF-/view?usp=sharing")
+    # Download if not already present
+    if not os.path.exists(MODEL_PATH):
+        with st.spinner("Downloading model..."):
+            gdown.download(DRIVE_URL, MODEL_PATH, quiet=False)
+    return tf.keras.models.load_model(MODEL_PATH)
+
 
 @st.cache_data
 def load_labels():
@@ -119,4 +125,5 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
