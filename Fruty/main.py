@@ -9,7 +9,7 @@ import os
 def load_model_and_labels():
     try:
         model = tf.keras.models.load_model("Fruty/fruits.h5")
-        with open("label.txt", "r") as f:
+        with open("Fruty/label.txt", "r") as f:
             labels = [label.strip().lower() for label in f.readlines()]
         return model, labels
     except Exception as e:
@@ -102,4 +102,5 @@ elif app_mode == "Prediction":
                         st.success(f"Model Prediction: It's not a Fruit (It's {predicted_label.title()})")
                 else:
                     st.error("Prediction failed. Please try again.")
+
 
