@@ -2,4 +2,4 @@ numpy
 streamlit
 tensorflow
 tensorflow_intel
-
+gdown
