@@ -6,7 +6,7 @@ import tensorflow as tf
 import gdown  # pip install gdown
 import os
 
-MODEL_PATH = "fruits.h5"
+MODEL_PATH = "trained_model2.h5"
 DRIVE_URL = "https://drive.google.com/uc?id=1dAS_zmDZb0kM9aULiBcYufj7-BXTzWF-"  # Direct download link
 
 @st.cache_resource
@@ -48,7 +48,7 @@ app_mode = st.sidebar.selectbox("Select Page", ["Home", "About Project", "Predic
 # ---------------------------
 if app_mode == "Home":
     st.header("🍎 Fruits Classification System (Fruty)")
-    st.image("Fruty/home_img.jpg", use_container_width=True)
+    st.image("Fruty/home_img.jpg", width=True)
     st.markdown(
         """
         ### Welcome to **Fruty** 🍌🍇🍊  
@@ -125,5 +125,6 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
