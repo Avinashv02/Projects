@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # Load the model and labels
-model = tf.keras.models.load_model("fruits.h5")
+model = tf.keras.models.load_model("Fruty/fruits.h5")
 with open("label.txt") as f:
     labels = f.readlines()
 
@@ -71,3 +71,4 @@ elif app_mode == "Prediction":
                 st.success(f"Model Prediction: It's a Fruit ({predicted_label})")
             else:
                 st.success("Model Prediction: It's not a Fruit")
+
