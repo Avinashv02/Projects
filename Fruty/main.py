@@ -38,7 +38,7 @@ app_mode = st.sidebar.selectbox("Select Page", ["Home", "About Project", "Predic
 # Main Page
 if app_mode == "Home":
     st.header("FRUITS CLASSIFICATION SYSTEM (Fruty)")
-    image_path = 'home_img.jpg'
+    image_path = 'Fruty/home_img.jpg'
     
     # Check if image exists before displaying
     if os.path.exists(image_path):
@@ -102,3 +102,4 @@ elif app_mode == "Prediction":
                         st.success(f"Model Prediction: It's not a Fruit (It's {predicted_label.title()})")
                 else:
                     st.error("Prediction failed. Please try again.")
+
