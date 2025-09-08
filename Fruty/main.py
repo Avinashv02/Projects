@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import time
 import os
+import streamlit as st
 from PIL import Image
 import io
 
@@ -120,6 +121,7 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
 
