@@ -9,7 +9,6 @@ import io
 # ---------------------------
 # Load Model and Labels
 # ---------------------------
-@st.cache_resource
 def load_model_and_labels():
     try:
         model = tf.keras.models.load_model("Fruty/trained_model2.h5")
@@ -121,6 +120,7 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
 
