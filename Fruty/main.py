@@ -6,32 +6,21 @@ import streamlit as st
 from PIL import Image
 import io
 
-# Load the model and labels with error handling
-# ---------------------------
 # Load Model and Labels
-# ---------------------------
-def load_model_and_labels():
-    try:
-        model = tf.keras.models.load_model("Fruty/trained_model2.h5")
-        with open("Fruty/label.txt", "r") as f:
-            labels = [label.strip().lower() for label in f.readlines()]
-        return model, labels
-    except Exception as e:
-        st.error(f"Error loading model or labels: {e}")
-        return None, None
-
-model, labels = load_model_and_labels()
-
+model = tf.keras.models.load_model("Fruty/trained_model2.h5")
+with open("Fruty/label.txt") as f:
+    labels = f.readlines()
+    
 # ---------------------------
 # Prediction Function
 # ---------------------------
-def model_prediction(image_data):
-    image = Image.open(image_data).convert("RGB")
-    image = image.resize((64, 64))
+def model_prediction(test_image):
+    image = tf.keras.preprocessing.image.load_img(test_image, target_size=(64, 64))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
-    input_arr = np.expand_dims(input_arr, axis=0) / 255.0  # normalize
+    input_arr = np.array([input_arr])  # Convert single image to batch
     predictions = model.predict(input_arr)
-    return np.argmax(predictions)
+    return np.argmax(predictions)  # Return index of max element
+
 
 # ---------------------------
 # Sidebar
@@ -121,6 +110,7 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
 
