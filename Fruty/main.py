@@ -1,30 +1,26 @@
-import streamlit as st
 import tensorflow as tf
 import numpy as np
 import time
-import tensorflow as tf
-import gdown  # pip install gdown
 import os
+from PIL import Image
+import io
 
-MODEL_PATH = "trained_model2.h5"
-DRIVE_URL = "https://drive.google.com/uc?id=1dAS_zmDZb0kM9aULiBcYufj7-BXTzWF-"  # Direct download link
-
+# Load the model and labels with error handling
+# ---------------------------
+# Load Model and Labels
+# ---------------------------
 @st.cache_resource
-def load_model():
-    # Download if not already present
-    if not os.path.exists(MODEL_PATH):
-        with st.spinner("Downloading model..."):
-            gdown.download(DRIVE_URL, MODEL_PATH, quiet=False)
-    return tf.keras.models.load_model(MODEL_PATH)
+def load_model_and_labels():
+    try:
+        model = tf.keras.models.load_model("Fruty/trained_model2.h5")
+        with open("Fruty/label.txt", "r") as f:
+            labels = [label.strip().lower() for label in f.readlines()]
+        return model, labels
+    except Exception as e:
+        st.error(f"Error loading model or labels: {e}")
+        return None, None
 
-
-@st.cache_data
-def load_labels():
-    with open("Fruty/label.txt") as f:
-        return [line.strip().lower() for line in f]
-
-model = load_model()
-labels = load_labels()
+model, labels = load_model_and_labels()
 
 # ---------------------------
 # Prediction Function
@@ -125,6 +121,7 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
 
