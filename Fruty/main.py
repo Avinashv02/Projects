@@ -104,7 +104,7 @@ elif app_mode == "About Project":
 elif app_mode == "Prediction":
     st.header("🔍 Model Prediction")
     uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "jpeg", "png"])
-    st.markown("Image should contain only one fruit or vegetable and should be clear)
+    st.markown("Image should contain only one fruit or vegetable and should be clear")
 
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
@@ -128,6 +128,7 @@ elif app_mode == "Prediction":
                     st.warning(f"🥦 It's NOT a Fruit! Detected: **{predicted_label.capitalize()}**")
 
             st.balloons()
+
 
 
 
