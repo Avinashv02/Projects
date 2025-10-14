@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png" />
     <title>Avinash-Verma - Portfolio</title>
     <style>
         * {
@@ -226,7 +227,7 @@
         }
 
         .profile-img img{
-             width: 350px;
+            width: 350px;
             height: 280px;
             border-radius: 5%;
             background: var(--gradient);
@@ -239,8 +240,8 @@
         }
 
         .profile-img img:hover{
-            transform: scale(1.28);
-            box-shadow: 0 15px 35px rgba(0, 191, 255, 0.5);
+            transform: scale(1.25);
+            box-shadow: 0 15px 35px rgba(132, 0, 255, 0.5);
             transition: transform 0.9s;
         }
 
@@ -404,13 +405,21 @@
             box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
         }
 
-        .project-image {
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
+        .project-image img{
+            height: 100%;
+            width: 100%;
+            display:flexbox;
+            flex-wrap: wrap;
+            align-items:center;
+            justify-content:center;
+            object-fit:fill;
+        }
+
+        .project-image img:hover{
+            transform: scale(0.9);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(144, 59, 255, 0.719);
+            transition: transform 500ms;
         }
 
         .project-content {
@@ -741,7 +750,7 @@
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">🚀</div>
+                    <div class="project-image"><img src="portfolio (1).png"></div>
                     <div class="project-content">
                         <h3 class="project-title">1) My Portfolio</h3>
                         <p class="project-desc">A responsive and dynamic portfolio website built to showcase my work, skills, and projects. It serves as my personal digital identity for recruiters and collaborators.</p>
@@ -756,14 +765,14 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">🎨</div>
+                    <div class="project-image"><img src="fruty.png"></div>
                     <div class="project-content">
                         <h3 class="project-title">2) Fruit Classification App - FRUTY</h3>
                         <p class="project-desc">Fruty is a web app that is used to classify whether the given picture is of fruit or not. It can classify between fruits and vegetable by uploading their image.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Streamlit</span>
-                            <span class="tag">Maachine learning</span>
+                            <span class="tag">Machine learning</span>
                         </div>
                         <a href="https://fruty-project01.streamlit.app/" class="project-link" target="_blank">View Project →</a><br>
                         <a href="https://github.com/Avinashv02/Projects/tree/main/Fruty" class="project-link" target="_blank">Project GitHub →</a>
@@ -771,7 +780,7 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">📱</div>
+                    <div class="project-image"><img src="lumina.png"></div>
                     <div class="project-content">
                         <h3 class="project-title">3) AI Powered Chatbot - Lumina</h3>
                         <p class="project-desc">Lumina is an AI powered chatbots which answer users query using artificial intelligence. Chatbot uses Openrouter API key to get the responses.</p>
