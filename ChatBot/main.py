@@ -17,9 +17,7 @@ feedback_collection = db["feedbacks"]
 st.set_page_config(page_title="Lumina AI", layout="wide", page_icon="✨")
 
 # --- Styles ---
-def load_styles(theme):
-    themes = st.sidebar.selectbox("Choose Theme", ["Aurora", "Cosmic", "Nebula"])
-    
+def load_styles(theme, themes):
     if themes == "Aurora":
         st.markdown(Aurora_theme_css, unsafe_allow_html=True)
     elif themes == "Cosmic":
@@ -27,16 +25,9 @@ def load_styles(theme):
     else:
         st.markdown(nebula_theme_css, unsafe_allow_html=True)
 
-
 # Custom CSS for each theme with hover effects for buttons
 Aurora_theme_css = """
     <style>
-    body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: #FFFFFF;
-        font-family: 'Roboto', sans-serif;
-    }
-
     .main-header {
         color: #D0F0FF;
         text-align: center;
@@ -52,7 +43,6 @@ Aurora_theme_css = """
         border: none;
         padding: 8px 24px;
         font-weight: bold;
-        transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 0 10px rgba(28, 181, 224, 0.6);
     }
 
@@ -88,12 +78,6 @@ Aurora_theme_css = """
 
 cosmic_theme_css = """
     <style>
-    body {
-        background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
-        color: #E0E0E0;
-        font-family: 'Roboto', sans-serif;
-    }
-
     .main-header {
         color: #FF6EC7;
         text-align: center;
@@ -109,7 +93,6 @@ cosmic_theme_css = """
         border: none;
         padding: 10px 25px;
         font-weight: bold;
-        transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 0 10px rgba(92, 37, 141, 0.6);
     }
 
@@ -146,12 +129,6 @@ cosmic_theme_css = """
 
 nebula_theme_css = """
     <style>
-    body {
-        background: linear-gradient(135deg, #2e003e, #3a0ca3, #4361ee, #4cc9f0);
-        color: #EAEAEA;
-        font-family: 'Roboto', sans-serif;
-    }
-
     .main-header {
         color: #FF6EFF;
         text-align: center;
@@ -167,7 +144,6 @@ nebula_theme_css = """
         border: none;
         padding: 10px 25px;
         font-weight: bold;
-        transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 0 12px rgba(131, 56, 236, 0.6);
     }
 
@@ -203,7 +179,6 @@ nebula_theme_css = """
     </style>
 """
 
-
 # --- Utilities ---
 def get_openrouter_response(question):
     url = "https://openrouter.ai/api/v1/chat/completions"
@@ -225,7 +200,6 @@ def get_openrouter_response(question):
     except Exception as e:
         return f"Error: {str(e)}"
     
-
 # --- Chat Components ---
 def initialize_session_state():
     defaults = {
@@ -320,7 +294,6 @@ def render_sidebar():
             
             # Container for Lumina info
             st.info("A cutting-edge chatbot powered by OpenRouter AI, designed to enlighten and assist. This advanced chatbot leverages the robust capabilities of OpenRouter AI, providing users with intelligent, responsive, and context-aware assistance across diverse domains. ")
-            
             st.markdown("<h3>About me</h3>", unsafe_allow_html=True)
             
             # Container for creator info
@@ -344,8 +317,9 @@ def render_sidebar():
 
 # --- Main App ---
 def main():
+    themes = st.sidebar.selectbox("Choose Theme", ["Aurora", "Cosmic", "Nebula"])
     theme = render_sidebar()
-    load_styles(theme)
+    load_styles(theme, themes)
     with st.container():
         st.markdown("<h1 class='main-header'>Lumina AI ✨</h1>", unsafe_allow_html=True)
         st.markdown("<hr style='border: 1px solid black;'>", unsafe_allow_html=True)
