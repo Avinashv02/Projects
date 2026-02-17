@@ -340,7 +340,6 @@ def render_sidebar():
                     st.session_state.feedback = ""
                 else:
                     st.warning("Please enter feedback.")
-
     return
 
 # --- Main App ---
@@ -349,9 +348,8 @@ def main():
     load_styles(theme)
     with st.container():
         st.markdown("<h1 class='main-header'>Lumina AI ✨</h1>", unsafe_allow_html=True)
-        st.markdown("<hr style='border: 1px solid rgba(255, 255, 255, 0.2);'>", unsafe_allow_html=True)
+        st.markdown("<hr style='border: 1px solid black;'>", unsafe_allow_html=True)
         render_chat_interface()
 
 if __name__ == "__main__":
-
     main()
