@@ -80,7 +80,7 @@ elif app_mode == "About Project":
     st.code("Avinash Verma, 2K22/SE/36")
 
     st.subheader("📦 Dataset Details")
-    st.subheader("Dataset is taken from Kaggle.")
+    st.code("Dataset is taken from Kaggle.")
     st.markdown(
         """
         **Fruits:** Banana, Apple, Pear, Grapes, Orange, Kiwi, Watermelon,  
