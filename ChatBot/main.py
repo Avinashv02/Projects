@@ -1,7 +1,7 @@
 import streamlit as st
 from pymongo import MongoClient
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 
 # --- Configuration ---
@@ -261,7 +261,7 @@ def process_user_input():
                 "<a href='https://www.linkedin.com/in/avinash-verma-584655261/'>LinkedIn</a>."
             )
         elif "time" in question_lower:
-            response = f"Current time: {datetime.now().strftime('%I:%M:%S %p')} (UTC)"
+            response = f"Current time: {datetime.now(timezone.utc).strftime('%I:%M:%S %p')} (UTC)"
         elif "how are you" in question_lower:
             response = "I'm a digital entity, thriving on code! How can I help you today?"
         else:
