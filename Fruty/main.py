@@ -76,10 +76,8 @@ elif app_mode == "About Project":
         """
     )
 
-    st.subheader("👨‍💻 Team Members")
-    st.code("Avinash Verma, 2K22/SE/36\nDeepak Kumar, 2K22/SE/54")
-    st.subheader("👩‍🏫 Supervisors")
-    st.code("M/s Shweta Meena Mam\nM/s Anjali Bansal Mam")
+    st.subheader("👨‍💻 Developer")
+    st.code("Avinash Verma, 2K22/SE/36")
 
     st.subheader("📦 Dataset Details")
     st.markdown(
