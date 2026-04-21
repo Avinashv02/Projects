@@ -80,9 +80,9 @@ elif app_mode == "About Project":
     st.code("Avinash Verma, 2K22/SE/36")
 
     st.subheader("📦 Dataset Details")
+    st.subheader("Dataset is taken from Kaggle.")
     st.markdown(
         """
-        st.subheader("Dataset is taken from Kaggle.")
         **Fruits:** Banana, Apple, Pear, Grapes, Orange, Kiwi, Watermelon,  
         Pomegranate, Pineapple, Mango, Cucumber, Bell Pepper, Corn, Eggplant, Tomato.  
 
